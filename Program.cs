@@ -1,7 +1,9 @@
 ﻿using Game;
+using Game2;
 using System.Threading.Channels;
 
 Random random = new Random();
+WanDarkHolme pashalka = new WanDarkHolme();
 
 string hello = @"
                _                            _          _   _                 _       _       _               _     _        
@@ -48,6 +50,7 @@ for (int i = 0; i < player.Length; i++)
 Console.Clear();
 for (int i = 0; i < player.Length; i++)
 {
+    Console.Write(i + 1 + " ");
     player[i].Print();
 }
 
@@ -59,8 +62,10 @@ int hero = int.Parse(Console.ReadLine())-1;
 
 while (true)
 {
-    Console.WriteLine("0 - Информация о всех героях.\n1 - Поменять героя.\n2 - Движение.\n3 - УНИЧТОЖЕНИЕ.\n4 - Битва.\n9 - Информация о своём герое.\n5 - Лечение.\n6 - Полное восстановление здоровья.\n7 - Смена лагеря.\n8 - Информация о соём герое.");
+    Console.WriteLine("\n0 - Информация о всех героях.\n1 - Поменять героя.\n2 - Движение.\n3 - УНИЧТОЖЕНИЕ.\n4 - Битва.\n5 - Лечение.\n6 - Полное восстановление здоровья.\n7 - Смена лагеря.\n8 - Информация о соём герое.");
+    Console.Write("Ввод: ");
     int what = int.Parse(Console.ReadLine());
+    Console.WriteLine();
 
 
     int xp = player[hero].getxp();
@@ -69,6 +74,7 @@ while (true)
         Console.Clear();
         for (int i = 0; i < player.Length; i++)
         {
+            Console.Write(i + 1 + " ");
             player[i].Print();
         }
         Console.WriteLine("Ваш герой отправился на фонтан, давай меняй героя");
@@ -78,7 +84,9 @@ while (true)
 
     if (what == 8)
     {
+        Console.Clear();
         player[hero].Print();
+        Console.WriteLine();
     }
 
     if (what == 0)
@@ -137,8 +145,9 @@ while (true)
         else if (player[hero].getx() == player[anigilate].getx() && player[hero].gety()==player[anigilate].gety()) 
         {
             player[anigilate].Del(anigilate);
+            
         
-        } else if (player[hero].getx() != player[anigilate].getx() && player[hero].gety() == player[anigilate].gety())
+        } else
         { 
             Console.WriteLine("Дружок - перожок, тобой выбранна неправильная координата. Клуб кожевенного мастерства парой координат дальше."); 
         }
@@ -197,6 +206,11 @@ while (true)
     {
         Console.WriteLine("Смена лагеря.");
         player[hero].Lager();
+    }
+
+    if (what == 8800)
+    {
+        pashalka.RikardoMilos();
     }
 
 

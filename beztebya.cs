@@ -64,7 +64,7 @@ namespace Game
         {
 
             kol = 0;
-
+            Console.WriteLine("Поганый ящер уничтожен.");
         }
 
         public int getdu()
